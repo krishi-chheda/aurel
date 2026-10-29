@@ -159,5 +159,3 @@ Every error uses one envelope: `{"error": {"code", "message", "fields?", "curren
 - [docs/security.md](docs/security.md) — controls in place and what must happen before any production use
 - [docs/integrations.md](docs/integrations.md) — external services and their integration boundaries
 - [docs/status.md](docs/status.md) — honest status of every feature, known limitations
-#   a u r e l  
- 
