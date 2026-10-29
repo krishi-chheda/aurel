@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TEAMID.com.aurel.health"],
+        "components": [
+          { "/": "/dashboard" }, { "/": "/health*" }, { "/": "/care-plan" }, { "/": "/appointments*" },
+          { "/": "/profile" }, { "/": "/notifications" }, { "/": "/onboarding" }, { "/": "/support" }, { "/": "/reports" }
+        ]
+      }
+    ]
+  }
+}
