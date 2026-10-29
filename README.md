@@ -1,5 +1,7 @@
 # Aurel — unified preventive-health platform (prototype)
 
+[![CI](https://github.com/krishi-chheda/aurel/actions/workflows/ci.yml/badge.svg)](https://github.com/krishi-chheda/aurel/actions/workflows/ci.yml)
+
 A responsive website, an iOS/Android app and one FastAPI backend, built around a single principle:
 **one account, one health profile, one continuous experience.** Start onboarding on the web, finish it on
 your phone, tick off a care-plan task on either and see it on the other.
@@ -121,7 +123,7 @@ available while building this, so the app has only been run and tested on SQLite
 ## Tests
 
 ```bash
-cd services/api && .venv/Scripts/python -m pytest -q      # 75 tests: auth, authorisation/IDOR, validation, sync, workflow rules, migrations
+cd services/api && .venv/Scripts/python -m pytest -q      # 76 tests: auth, authorisation/IDOR, validation, sync, workflow rules, migrations
 cd packages/shared && npm test                             # 11 tests: API client (refresh, offline, conflict), deep-link validation
 cd apps/web && npx playwright test                         # e2e: real UI + a second "mobile" client against an isolated API, plus an axe accessibility scan
 cd apps/web && npx tsc --noEmit && npm run build           # web type-check + production build

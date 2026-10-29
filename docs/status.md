@@ -7,7 +7,7 @@ manually exercised, but no automated test · **Partial** · **Blocked** (externa
 
 | Check | Result |
 |---|---|
-| Backend `pytest` | 75 passed |
+| Backend `pytest` | 76 passed (SQLite) |
 | Shared package `node --test` | 11 passed |
 | Web e2e (Playwright, Microsoft Edge, desktop + Pixel 7 profiles) | 18 passed (includes the axe accessibility scan) |
 | ESLint (web `eslint-config-next`, mobile `eslint-config-expo`) | clean |
@@ -18,7 +18,7 @@ manually exercised, but no automated test · **Partial** · **Blocked** (externa
 | Mobile UI on a device/emulator | **not run** (no Android SDK, iOS needs macOS) |
 | Mobile UI via Expo web in a browser | manually exercised: sign-in, dashboard, resuming web-started onboarding, finishing it, ticking a task that then showed as done on the website |
 | Alembic on SQLite | upgrade from empty verified (also in pytest) |
-| Alembic on PostgreSQL | DDL rendered offline only; **no live PostgreSQL run** |
+| Alembic on PostgreSQL | DDL rendered offline locally. GitHub Actions now runs `alembic upgrade head` and the full pytest suite on PostgreSQL 17 (`.github/workflows/ci.yml`); result pending the first CI run |
 
 ## Features
 

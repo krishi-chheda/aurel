@@ -2,7 +2,8 @@ import os
 import tempfile
 
 _db = os.path.join(tempfile.mkdtemp(), "test.db")
-os.environ.update(DATABASE_URL=f"sqlite:///{_db}", ENV="test", REFRESH_COOKIE_PATH="/auth", RATE_LIMIT_ENABLED="false")
+# TEST_DATABASE_URL runs the suite on another database (CI uses it for PostgreSQL); SQLite otherwise.
+os.environ.update(DATABASE_URL=os.environ.get("TEST_DATABASE_URL", f"sqlite:///{_db}"), ENV="test", REFRESH_COOKIE_PATH="/auth", RATE_LIMIT_ENABLED="false")
 
 import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402

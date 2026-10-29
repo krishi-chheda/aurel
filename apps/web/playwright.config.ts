@@ -4,6 +4,8 @@ import { defineConfig, devices } from "@playwright/test";
 // many users) and a production build of the web app (port 3011). Your dev servers on 3000/8000 are untouched.
 const API_PORT = 8011;
 const WEB_PORT = 3011;
+// The API virtualenv: services/api/.venv (Scripts\ on Windows, bin/ elsewhere, e.g. GitHub Actions).
+const PY = process.platform === "win32" ? ".venv\\Scripts\\python" : ".venv/bin/python";
 const channel = process.env.PW_CHANNEL === undefined ? "msedge" : process.env.PW_CHANNEL || undefined;
 
 export default defineConfig({
@@ -20,7 +22,7 @@ export default defineConfig({
   webServer: [
     {
       cwd: "../../services/api",
-      command: `.venv\\Scripts\\python -m alembic upgrade head && .venv\\Scripts\\python -m uvicorn app.main:app --no-proxy-headers --port ${API_PORT}`,
+      command: `${PY} -m alembic upgrade head && ${PY} -m uvicorn app.main:app --no-proxy-headers --port ${API_PORT}`,
       env: { DATABASE_URL: "sqlite:///./aurel-e2e.db", RATE_LIMIT_ENABLED: "false", CORS_ORIGINS: `http://localhost:${WEB_PORT}` },
       url: `http://127.0.0.1:${API_PORT}/healthz`,
       reuseExistingServer: false,
