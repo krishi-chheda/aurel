@@ -13,6 +13,11 @@ __pycache__/
 test-results/
 playwright-report/
 .install-*.log
-.claude/settings.local.json
 apps/mobile/ios/
 apps/mobile/android/
+
+# Local tooling and OS files
+.claude/
+*.db-journal
+.DS_Store
+Thumbs.db
